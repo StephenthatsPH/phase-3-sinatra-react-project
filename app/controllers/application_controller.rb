@@ -19,7 +19,7 @@ class ApplicationController < Sinatra::Base
 
   # create
   post '/games' do
-
+    @game = Game.create(params[:game])
   end
 
   # show
@@ -45,7 +45,8 @@ class ApplicationController < Sinatra::Base
 
   # delete
   delete '/games/:id' do
-
+    Game.find(params[:id]).destroy!
+    redirect '/games'
   end
 
 end
