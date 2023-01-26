@@ -11,9 +11,15 @@ class ApplicationController < Sinatra::Base
     game.to_json
   end
   
-  put "/games/:id" do
+  patch "/games/:id" do
     game = Game.find(params[:id])
     game.update(params)
+    game.to_json
+  end
+
+  put "/games/:id" do
+    game = Game.find(params[:id])
+    game.update(params[:game])
     game.to_json
   end
   
