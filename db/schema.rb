@@ -13,9 +13,8 @@
 ActiveRecord::Schema.define(version: 2023_01_26_203654) do
 
   create_table "games", force: :cascade do |t|
-    t.string "title", null: false
-    t.string "publisher", null: false
-    t.string "platform", null: false
+    t.string "title"
+    t.string "publisher"
     t.string "platform_id"
   end
 
