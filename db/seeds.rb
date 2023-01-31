@@ -21,6 +21,11 @@ Game.create([
         publisher: "Activision O2",
         platform_id: "9"
     },
+    {
+        title: "Hallow Knight",
+        publisher: "Team Cherry",
+        platform_id: "4"
+    },
 
 ])
 

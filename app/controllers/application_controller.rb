@@ -13,21 +13,10 @@ class ApplicationController < Sinatra::Base
   end
   
   patch "/games/:id" do
-    game = Game.find(params[:id])
-    game.update(
-      title: params[:title],
-      publisher: params[:publisher],
-    )
-    game.to_json
-  end
-
-  put "/games/:id" do
-    game = Game.find(params[:id])
-    game.update(
-      title: params[:title],
-      publisher: params[:publisher],
-    )
-    game.to_json
+    game = params[:game]
+    update_game = Game.find(params[:id])
+    update_game.update(game)
+    update_game.to_json
   end
 
   delete "/games/:id" do
