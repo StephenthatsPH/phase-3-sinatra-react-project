@@ -3,12 +3,13 @@ class ApplicationController < Sinatra::Base
   
   get "/games" do
     games = Game.all
-    games.to_json
+    games.to_json(:include => :platform)
   end
   
   post "/games" do
-    game = Game.create(params[:game])
-    game.to_json
+    game = params[:game]
+    new_game = Game.create(game)
+    new_game.to_json
   end
   
   patch "/games/:id" do
