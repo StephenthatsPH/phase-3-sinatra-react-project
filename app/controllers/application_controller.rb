@@ -2,7 +2,7 @@ class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
   
   get "/games" do
-    games = Game.all
+    games = Game.all.order(:platform_id)
     games.to_json(:include => :platform)
   end
   
