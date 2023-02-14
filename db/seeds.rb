@@ -81,10 +81,6 @@ Platform.create([
     {
         id: "13",
         name: "Handheld"
-    },
-    {
-        id: "14",
-        name: "Other"
     }
 ])
 puts "✅ Done seeding!"
