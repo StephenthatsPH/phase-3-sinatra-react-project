@@ -28,13 +28,29 @@ class ApplicationController < Sinatra::Base
   
   # Platforms
   get "/platforms" do
-    platforms = Platform.all
-    platforms.to_json
+    platforms = Platform.all.order(:name)
+    platforms.to_json(:include => :games)
   end
 
+  get "/platforms/:id" do
+    platform = Platform.find(params[:id])
+    platform.to_json(include: :games)
+  end
+  
   post "/platforms" do
     platform = params[:platform]
     new_platform = Platform.create(platform)
     new_platform.to_json
   end
 end
+
+post "/games/:id/platforms" do
+  game = Game.create(params[:game])
+  game.to_json
+end
+
+delete "/platforms/:id" do
+  platform = Platform.find(params[:id])
+  platform.destroy
+end
+

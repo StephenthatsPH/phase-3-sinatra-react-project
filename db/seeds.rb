@@ -77,10 +77,6 @@ Platform.create([
     {
         id: "12",
         name: "Steamdeck"
-    },
-    {
-        id: "13",
-        name: "Handheld"
     }
 ])
 puts "✅ Done seeding!"
